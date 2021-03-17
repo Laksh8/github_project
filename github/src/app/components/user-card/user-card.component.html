@@ -1,0 +1,11 @@
+<div class="card align-center" *ngIf="!!userInfo" style="width: 20rem;">
+    <img class="card-img-top" src="{{userInfo.avatar_url}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{userInfo.name}}</h5>
+      <p class="card-text">{{userInfo.bio}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{userInfo.company}}</li>
+      <li class="list-group-item">{{userInfo.updated_at | date}}</li>
+    </ul>
+</div>

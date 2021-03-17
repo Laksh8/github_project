@@ -1,0 +1,6 @@
+<ul *ngIf="repos" class="list-group">
+    <!-- {{repos | json}} -->
+    <ng-container *ngFor="let repo of repos ">
+        <li class="list-group-item"><a href="https://github.com/Laksh8/{{repo.fullname}}"> {{repo.name}} </a></li> 
+    </ng-container>
+</ul>

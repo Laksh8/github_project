@@ -1,0 +1,64 @@
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal">GitHub Repos</h5>
+        <ng-container *ngIf="authService.checkAuth()">
+        <form [formGroup]="searchForm" class="form-inline my-2 my-lg-0" >
+          <input class="form-control mr-sm-2" formControlName="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" (click)="onSubmit()">Search</button>
+        </form>
+        </ng-container>
+        <nav class="my-2 my-md-0 float-right mr-md-3">
+          <ng-container *ngIf="authService.checkAuth()" >
+            <a class="p-2 text-dark" [routerLink]="['']" routerLinkActive="router-link-active" >Home</a>
+            <a class="btn btn-danger" (click)="logout()" >Logout</a>
+
+          </ng-container>
+          <ng-container *ngIf="!authService.checkAuth()" >
+            <a class="p-2 text-dark" [routerLink]="['/accounts/login']" routerLinkActive="router-link-active" >login</a>
+            <a class="btn btn-outline-primary" [routerLink]="['/accounts/signup']" routerLinkActive="router-link-active" >Sign up</a>
+          </ng-container>
+        </nav>
+      </div>
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" [routerLink]="['']" routerLinkActive="active" >
+        Github
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse nav navbar-right navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">SignUp</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      
+    </div>
+  </nav> -->

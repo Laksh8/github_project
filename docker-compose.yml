@@ -1,0 +1,21 @@
+version: "3"
+
+services: 
+  forntend:
+    build: "./github/"
+    ports:
+      - "4200:4200"
+    command: "ng serve --host 0.0.0.0"
+    volumes: 
+      - "./github/github:/usr/src/app"
+    depends_on: 
+      - "backend"
+  
+  backend:
+    build: "./github_api/"
+    volumes: 
+      - "./github_api:/code"
+    ports: 
+      - "8000:8000"
+    
+    command: bash -c " python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
